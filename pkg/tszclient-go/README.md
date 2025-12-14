@@ -20,11 +20,19 @@ From within this repository, you can import it as:
 import "thyris-sz/pkg/tszclient-go"
 ```
 
-If you publish it as a standalone module later, usage will be similar to:
+If you want to consume it via the GitHub module path (for example from an
+external project), you can import it as:
 
 ```go
-import "github.com/your-org/tszclient-go"
+import tszclient "github.com/thyrisAI/safe-zone/pkg/tszclient-go"
 ```
+
+See `examples/go-sdk-demo` in this repository for a complete, runnable
+example that:
+
+- Uses the GitHub import path
+- Has its own `go.mod` demonstrating how to depend on `github.com/thyrisAI/safe-zone`
+- Calls both `/detect` and the `/v1/chat/completions` gateway from a single program
 
 ---
 
@@ -210,7 +218,6 @@ func main() {
         log.Fatalf("chat completions failed: %v", err)
     }
 
-    // ChatCompletions returns a `ChatCompletionResponse` map value
     choices, ok := resp["choices"].([]interface{})
     if !ok || len(choices) == 0 {
         log.Println("no choices in response")
