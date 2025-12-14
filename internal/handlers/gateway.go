@@ -69,7 +69,7 @@ func NewOpenAIChatGateway(detector *guardrails.Detector) http.HandlerFunc {
 				writeOpenAIErrorWithMeta(w, http.StatusBadRequest, blockMessage, "tsz_content_blocked", meta)
 				return
 			}
-			// MASK / WARN modlarında upstream çağrısına devam edilir; tsz_meta'da blocked=true bilgisi taşınır.
+
 		}
 
 		payload["messages"] = sanitizedMessages
@@ -304,7 +304,7 @@ func processNonStreamResponse(detector *guardrails.Detector, rid string, guardra
 						writeOpenAIErrorWithMeta(w, http.StatusBadRequest, msgText, "tsz_output_blocked", meta)
 						return
 					}
-					// MASK / WARN modlarında stream kesilmez; redaksiyon uygulanırsa devam edilir.
+
 				}
 
 				if outResp.RedactedText != "" {
