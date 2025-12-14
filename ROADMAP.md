@@ -28,28 +28,36 @@ The roadmap is split into phases. Each bullet is a concrete, actionable item.
 - [ ] Define a Phase 1 test strategy (risk‑based, bank/PCI‑ready):
   - [ ] Define test categories and entry/exit criteria (unit, integration, e2e, non‑functional, security)
   - [ ] Set minimal coverage expectations for critical flows (PII/PCI, allow/mask/block decisions)
-- [ ] Add unit tests for core detection and decision logic:
-  - [ ] PII detection and redaction (emails, phones, national IDs, card numbers and other PCI‑relevant fields)
-  - [ ] Confidence thresholds and decision logic (allow / mask / block, including rounding and boundary conditions)
-  - [ ] Validators (BUILTIN, REGEX, SCHEMA, AI_PROMPT) including negative and edge cases
-  - [ ] Templates import behavior (upsert semantics, idempotency and validation errors)
-  - [ ] Security event and SIEM model mapping
-- [ ] Add integration tests (API + DB/Redis + AI client boundaries) for:
-  - [ ] `/detect` end‑to‑end with PII / non‑PII / borderline payloads
-  - [ ] LLM gateway `/v1/chat/completions` including streaming and guardrail modes
-  - [ ] Templates import + detection flow using built‑in template packs
-  - [ ] Allowlist/blocklist logic and pattern precedence
-- [ ] Add end‑to‑end regression suites (CI‑friendly, runnable via `go test ./...` or `test-scripts/`):
+- [x] Add unit tests for core detection and decision logic:
+  - [x] PII detection and redaction (emails, phones, national IDs, card numbers and other PCI‑relevant fields)
+  - [x] Confidence thresholds and decision logic (allow / mask / block, including rounding and boundary conditions)
+  - [x] Validators (BUILTIN, REGEX, SCHEMA, AI_PROMPT) including negative and edge cases)
+  - [x] Templates import behavior (upsert semantics, idempotency and validation errors)
+  - [x] Security event and SIEM model mapping)
+- [x] Add integration tests (API + DB/Redis + AI client boundaries) for:
+  - [x] `/detect` end‑to‑end with PII / non‑PII / borderline payloads)
+  - [x] LLM gateway `/v1/chat/completions` including streaming and guardrail modes)
+  - [x] Templates import + detection flow using built‑in template packs)
+  - [ ] Allowlist/blocklist logic and pattern precedence)
+- [x] Add end‑to‑end regression suites (CI‑friendly, runnable via `go test ./...` or `test-scripts/`):
   - [ ] Happy‑path flows for typical banking use cases (KYC, customer support chat, transaction memos, internal ops)
-  - [ ] Misuse/abuse scenarios (prompt injection, jailbreak attempts, sensitive data exfiltration)
-  - [ ] Replay known incident patterns as regression tests where applicable
+  - [x] Misuse/abuse scenarios (prompt injection, jailbreak attempts, sensitive data exfiltration)
+  - [ ] Replay known incident patterns as regression tests where applicable)
 - [x] Add basic benchmarks (requests per second, latency under load) (covered by `test-scripts` load test helper)
 - [x] Add graceful error handling for external AI failures (timeouts, partial outages)
 - [ ] Add non‑functional tests:
-  - [ ] Load and stress tests for peak traffic and batch scenarios
+  - [ ] Load and stress tests for peak traffic and batch scenarios)
   - [ ] Basic resilience tests (timeouts, network failures, Redis/PostgreSQL outages)
+- [x] Establish a standard test folder structure:
+  - [x] Keep production code under `internal/...` and keep automated tests under `tests/` (unit, integration, e2e)
+  - [x] Add `tests/integration/` for HTTP + DB/Redis + AI-boundary integration tests)
+  - [x] Add `tests/e2e/` (and plan `tests/perf/`) for end‑to‑end and load tests)
+- [x] Migrate existing scripts to the new structure:
+  - [x] Convert `test-scripts/main.go` into `tests/e2e/sanity_suite_test.go` (keep script as an optional manual harness)
+  - [x] Convert `test-scripts/gateway-test/main.go` into `tests/e2e/gateway_streaming_test.go` (or similar)
+  - [x] Decide whether to keep additional demo scripts under `examples/` / `test-scripts/` as manual tools
 - [ ] Document performance characteristics, suggested resource sizing and the overall test strategy
-- [x] Add an end‑to‑end sanity test suite (`test-scripts/`) that exercises patterns, allowlist/blocklist, validators, templates, admin APIs and the LLM gateway
+- [x] Add an end‑to‑end sanity test suite (initially `test-scripts/`, later `tests/e2e/`) that exercises patterns, allowlist/blocklist, validators, templates, admin APIs and the LLM gateway
 
 ---
 
@@ -135,17 +143,3 @@ The roadmap is split into phases. Each bullet is a concrete, actionable item.
 - [ ] Write a short blog post / announcement describing TSZ and its use cases
 
 ---
-
-## Status and Next Steps
-
-Immediate next steps recommended:
-
-1. Decide on the open‑source license (Apache 2.0 strongly recommended for enterprise adoption).
-2. Add `LICENSE`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md` and update `README.md` to reflect the new license.
-3. Set up minimal CI (linting + tests + Docker build & publish) so external contributors can trust the build.
-4. Add the first non‑Go SDKs and examples:
-   - Python client (`tsz-client`) + FastAPI integration example
-   - Node/TypeScript client + Express/Fastify integration example
-5. Implement basic observability primitives:
-   - `/metrics` endpoint with Prometheus counters/histograms
-   - Example Grafana dashboards and SIEM documentation
