@@ -68,6 +68,21 @@ jobs:
         with:
           go-version-file: go.mod
 
+      - name: Install PostgreSQL client
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y postgresql-client
+
+      - name: Seed database with init.sql
+        env:
+          PGPASSWORD: postgres
+        run: |
+          psql \
+            -h localhost \
+            -U postgres \
+            -d thyris \
+            -f init.sql
+
       - name: Run TSZ server
         env:
           DB_DSN: postgres://postgres:postgres@localhost:5432/thyris?sslmode=disable&TimeZone=Europe/Istanbul
@@ -116,6 +131,21 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version-file: go.mod
+
+      - name: Install PostgreSQL client
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y postgresql-client
+
+      - name: Seed database with init.sql
+        env:
+          PGPASSWORD: postgres
+        run: |
+          psql \
+            -h localhost \
+            -U postgres \
+            -d thyris \
+            -f init.sql
 
       - name: Run TSZ server
         env:
