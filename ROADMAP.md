@@ -135,7 +135,7 @@ The roadmap is split into phases. Each bullet is a concrete, actionable item.
 - [ ] Define a versioning strategy (SemVer) and release cadence
 - [ ] Set up CI/CD:
   - [ ] Linting and formatting
-  - [ ] Tests and coverage reporting
+  - [X] Tests and coverage reporting
   - [ ] Docker image build & publish (GitHub Container Registry / Docker Hub)
 - [ ] Publish a clear `CHANGELOG.md`
 - [ ] Add issue and PR templates
