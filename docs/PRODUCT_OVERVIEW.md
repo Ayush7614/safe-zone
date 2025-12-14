@@ -94,7 +94,7 @@ For detailed architecture and security considerations, see `ARCHITECTURE_SECURIT
 
 ---
 
-## 🔒 Security & Compliance
+## Security & Compliance
 
 TSZ is built with a "Zero Trust" philosophy and is designed to support compliance with frameworks such as GDPR, PCI‑DSS, HIPAA and sector‑specific regulations.
 
