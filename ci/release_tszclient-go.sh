@@ -72,14 +72,8 @@ NEW_TAG="tszclient-go-v$NEW_VERSION"
 
 echo "[tszclient-go] New version: $NEW_VERSION (tag: $NEW_TAG)"
 
-# Run tests: only tests/ directory, after cleaning test cache
-# Note: internal/guardrails/testing_exports.go uses `//go:build test`, so some tests
-# require the `-tags test` build tag.
-echo "[tszclient-go] Cleaning test cache..."
-go clean -testcache
-
-echo "[tszclient-go] Running tests in ./tests/... with -tags test"
-go test -tags test ./tests/...
+# NOTE: Tests are intentionally NOT run in this release script.
+# They should be executed in a separate CI pipeline before triggering a release.
 
 # Create and push tag
 echo "[tszclient-go] Creating git tag $NEW_TAG"

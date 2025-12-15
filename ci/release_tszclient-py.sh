@@ -92,9 +92,8 @@ text_new = re.sub(r'^(version\s*=\s*\")[0-9]+\.[0-9]+\.[0-9]+(\")', r"\\g<1>" + 
 path.write_text(text_new, 'utf-8')
 PY
 
-# Run tests (if any)
-echo "[tszclient-py] Running tests (if configured)..."
-# Add your test command here if you have one, for example: pytest
+# NOTE: Tests are intentionally NOT run in this release script.
+# They should be executed in a separate CI pipeline before triggering a release.
 
 # Ensure build/twine are available
 # 1) First, check if build and twine modules are importable

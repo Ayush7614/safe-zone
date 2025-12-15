@@ -69,14 +69,8 @@ NEW_TAG="thyris-sz-v$NEW_VERSION"
 
 echo "[thyris-sz] New version: $NEW_VERSION (tag: $NEW_TAG)"
 
-# Run tests: only tests/ directory, after cleaning test cache
-# Note: internal/guardrails/testing_exports.go uses `//go:build test`, so helpers
-# require the `-tags test` build tag when running tests.
-echo "[thyris-sz] Cleaning test cache..."
-go clean -testcache
-
-echo "[thyris-sz] Running tests in ./tests/... with -tags test"
-go test -tags test ./tests/... 
+# NOTE: Tests are intentionally NOT run in this release script.
+# They should be executed in a separate CI pipeline before triggering a release.
 
 # Build binary (only main module in current directory)
 echo "[thyris-sz] Building binary from current module (.)..."
