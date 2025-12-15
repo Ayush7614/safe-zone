@@ -75,6 +75,7 @@ jobs:
         with:
           tag_name: ${{ env.LAST_TAG }}
           files: tszclient-go-*.zip
+          generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -95,5 +96,6 @@ jobs:
         with:
           tag_name: ${{ env.LAST_TAG }}
           files: tszclient-py-*.zip
+          generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
