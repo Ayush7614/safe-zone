@@ -78,6 +78,7 @@ The roadmap is split into phases. Each bullet is a concrete, actionable item.
   - [ ] Simple LLM proxy example (TSZ in front of OpenAI/Anthropic)
 - [x] Document streaming and guardrail modes for the LLM gateway (`docs/concepts/STREAMING.md`)
 - [x] Add a dedicated LLM gateway test harness (`test-scripts/gateway-test`) covering safe/unsafe, streaming and PII scenarios
+- [ ] Document and implement in-code version reporting for SDKs (e.g. `tszclient-go` `Version` constant and aligning with tags)
 
 ---
 
@@ -115,6 +116,27 @@ The roadmap is split into phases. Each bullet is a concrete, actionable item.
 
 ---
 
+## Phase 5 – Website & Content Hub
+
+**Goal:** Provide a clear entry point for users to understand TSZ, discover policy packs/templates and access learning resources.
+
+- [ ] Create a public website for TSZ:
+  - [ ] High-level product overview and value proposition
+  - [ ] Links to documentation, GitHub repo and SDKs
+  - [ ] Getting started section for developers and security teams
+- [ ] Build a "Policy Packs & Templates" hub:
+  - [ ] List and describe available template packs (PII, PCI, GDPR, toxicity, jailbreak, etc.)
+  - [ ] Provide links to JSON definitions and import instructions
+  - [ ] Show versioning and changelog per pack
+- [ ] Create a "Playground" or interactive demo page (optional initial version can be mock-only)
+- [ ] Set up a blog/updates section:
+  - [ ] Initial launch/announcement post (what TSZ is, why it exists)
+  - [ ] Deep dives on policy packs (how to use them, design decisions)
+  - [ ] Release highlights for major TSZ / SDK versions
+- [ ] Decide on hosting strategy (e.g. GitHub Pages, Vercel, Netlify) and basic CI for website deployments
+
+---
+
 ## Phase 6 – Security & Compliance
 
 **Goal:** Build trust with security‑sensitive users.
@@ -132,14 +154,12 @@ The roadmap is split into phases. Each bullet is a concrete, actionable item.
 
 **Goal:** Grow an active community and maintain a healthy release cycle.
 
-- [ ] Define a versioning strategy (SemVer) and release cadence
-- [ ] Set up CI/CD:
-  - [ ] Linting and formatting
-  - [X] Tests and coverage reporting
+- [x] Define a versioning strategy (SemVer) and release cadence (per product: thyris-sz, tszclient-go, tszclient-py)
+- [x] Set up CI/CD:
+  - [x] Linting and formatting
+  - [x] Tests and coverage reporting
   - [ ] Docker image build & publish (GitHub Container Registry / Docker Hub)
 - [ ] Publish a clear `CHANGELOG.md`
 - [ ] Add issue and PR templates
 - [ ] Tag `good first issue` and `help wanted` items to welcome contributors
 - [ ] Write a short blog post / announcement describing TSZ and its use cases
-
----
