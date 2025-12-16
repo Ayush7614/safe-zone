@@ -193,6 +193,6 @@ For a full technical view of TSZ, see the rest of the documentation set in the `
 **Thyris.AI Team**
 
 - **Website:** https://thyris.ai  
-- **Email:** support@thyris.ai
+- **Email:** open-source@thyris.ai
 
 For enterprise evaluations, architecture design sessions or security reviews, please reach out to our team to schedule a dedicated workshop.

@@ -244,4 +244,4 @@ For production deployments:
 - **API Reference (Enterprise)** – `API_REFERENCE.md`
 - **Product Overview (Business/Executive)** – `../PRODUCT_OVERVIEW.md`
 
-For formal security reviews, threat modeling sessions, or architecture validation, contact **support@thyris.ai**.
+For formal security reviews, threat modeling sessions, or architecture validation, contact **open-source@thyris.ai**.

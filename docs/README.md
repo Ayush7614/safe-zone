@@ -61,7 +61,7 @@ For repository‑level information (license, contributing, security policy), see
 For commercial support, integration help, or security reviews:
 
 - **Website:** https://thyris.ai  
-- **Email:** support@thyris.ai
+- **Email:** open-source@thyris.ai
 
 If you are evaluating TSZ in a POC, we recommend starting with:
 

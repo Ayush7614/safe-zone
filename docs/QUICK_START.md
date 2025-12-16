@@ -327,4 +327,4 @@ If you run into issues during Quick Start:
 - Check TSZ logs (`docker-compose logs tsz` or application logs).
 - Confirm DB and Redis are reachable and healthy.
 
-For commercial support or architecture reviews, contact **support@thyris.ai**.
+For commercial support or architecture reviews, contact **open-source@thyris.ai**.

@@ -22,8 +22,7 @@ Instead, contact the maintainers privately so we can investigate and remediate t
 
 Please send an email with details of the vulnerability to:
 
-- **security@thyris.ai** (preferred)
-- Or, if that is unavailable, **support@thyris.ai**
+- **open-source@thyris.ai**
 
 Include as much information as possible to help us reproduce and understand the issue:
 

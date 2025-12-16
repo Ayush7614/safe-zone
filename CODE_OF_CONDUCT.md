@@ -50,7 +50,7 @@ Instances of abusive, harassing, or otherwise unacceptable behavior may be repor
 
 For now, you can contact the maintainers via:
 
-- **Email:** support@thyris.ai
+- **Email:** open-source@thyris.ai
 
 All complaints will be reviewed and investigated promptly and fairly.
 
