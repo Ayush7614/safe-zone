@@ -14,6 +14,9 @@ TSZ provides real‑time scanning, redaction, and blocking capabilities so that 
 - Allowlist and blocklist management
 - Hot reloading of rules via APIs
 - High‑performance implementation in Go with Redis caching
+- **Native AWS Bedrock integration** – Use Anthropic Claude, Amazon Titan, Meta Llama, Mistral, and Cohere models directly
+- **Multi-provider AI support** – OpenAI-compatible endpoints (OpenAI, Azure OpenAI, Ollama) and AWS Bedrock
+- **OpenAI-compatible LLM gateway** – Drop-in replacement for OpenAI API with built-in guardrails
 
 ---
 
@@ -62,6 +65,27 @@ TSZ provides official client libraries for common stacks:
   A runnable example lives under `examples/python-sdk-demo`.
 
 ---
+
+## Testing
+
+TSZ includes a comprehensive test suite with 55+ tests covering unit, integration, and end-to-end scenarios:
+
+```bash
+# Run all tests
+go test ./tests/... -v
+
+# Run specific test suites
+go test ./tests/unit/...        # Unit tests (no dependencies)
+go test ./tests/integration/... # Integration tests (requires TSZ + DB + Redis)
+go test ./tests/e2e/...         # End-to-end tests (full system)
+```
+
+**Test Coverage:**
+- **Unit Tests (40+)**: Core business logic, AI providers, configuration, caching
+- **Integration Tests (15+)**: API endpoints, error handling, concurrent requests
+- **E2E Tests (5)**: Full system workflows, streaming, health checks
+
+For detailed information about the test suite, see `tests/README.md`.
 
 ## Contributing
 
