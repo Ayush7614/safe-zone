@@ -9,13 +9,7 @@ import (
 	"testing"
 )
 
-var cliBinPath string
-
 func getCLIPath(t *testing.T) string {
-	if cliBinPath != "" {
-		return cliBinPath
-	}
-
 	// We are in tests/e2e, so root is ../..
 	wd, err := os.Getwd()
 	if err != nil {
@@ -40,8 +34,7 @@ func getCLIPath(t *testing.T) string {
 		t.Fatalf("failed to build CLI: %v\nOutput: %s", err, string(out))
 	}
 
-	cliBinPath = outputPath
-	return cliBinPath
+	return outputPath
 }
 
 func runCLI(t *testing.T, args ...string) string {
@@ -71,8 +64,9 @@ func TestCLI_Scan(t *testing.T) {
 	if !strings.Contains(out, "redacted_text") {
 		t.Errorf("Expected redacted_text in output, got:\n%s", out)
 	}
-	if !strings.Contains(out, "[EMAIL]") {
-		t.Errorf("Expected [EMAIL] in output, got:\n%s", out)
+	// Placeholder might contain RID suffix (e.g., [EMAIL_...])
+	if !strings.Contains(out, "[EMAIL") {
+		t.Errorf("Expected [EMAIL...] in output, got:\n%s", out)
 	}
 }
 
